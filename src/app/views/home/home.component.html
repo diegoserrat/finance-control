@@ -1,0 +1,19 @@
+<painel-menu (sendNewPayment)="eventNewPayment()" (sendNewCreditCard)="eventNewCreditCard()"></painel-menu>
+<div class="fullContent" *blockUI="'ngBlockCreditCard'">
+    <div class="home">
+        Seus gastos em cartão(es): 
+        <div *ngFor="let creditCard of creditCards;">
+            {{creditCard.description}} -
+            {{creditCard.total}}
+        </div>
+
+        <ngx-charts-pie-chart
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="single"
+            [gradient]="gradient"
+            (select)="onSelectedCC($event)"
+        >
+        </ngx-charts-pie-chart>
+    </div>
+</div>
