@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BlockUIModule } from 'ng-block-ui';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ChartsModule } from 'ng2-charts';
+
 
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing.module';
@@ -23,7 +24,7 @@ import { DateService } from '../../services/date-service/date-service.service';
                 PainelMenuModule,
                 FormsModule,
                 BlockUIModule.forRoot(),
-                NgxChartsModule
+                ChartsModule
             ],
 
     providers: [ { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
