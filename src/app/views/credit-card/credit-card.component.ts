@@ -57,40 +57,31 @@ export class CreditCardComponent implements OnInit {
       this.service.getCreditCard(this.clientId)
           .pipe(take(1))
           .subscribe( ( data: any ) => { 
-            for ( let c in data.creditCard){
-              const payments = data.creditCard[c].payments.filter( payments =>{
-                const datePayment = moment(payments.financialDate).format('YYYY/MM');
-                const dateToday = moment(date).format('YYYY/MM');
-                
-                this.allPayments.push(payments);
-                
-                return  datePayment == dateToday ;
-              });
+            const data2 = data.creditCard;
+            data2.map( data2 =>{
+                const pay = data2.payments.filter( payments =>{ 
+                  const datePayment = moment(payments.financialDate).format('YYYY/MM');
+                  const dateToday = moment(date).format('YYYY/MM');
 
-              data.creditCard[c].payments = payments;
-               
-              this.total = 0;
+                  return  datePayment == dateToday ;
+                });
 
-              for ( let p in data.creditCard[c].payments){
-                this.total += data.creditCard[c].payments[p].value; 
+                data2.payments = pay;
                 
-                data.creditCard[c].payments[p].value = data.creditCard[c].payments[p].value / 100;
-                data.creditCard[c].payments[p].value  = data.creditCard[c].payments[p].value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                data.creditCard[c].total = this.total;
-                
-                this.inputDisabled = true;
-              }
-             
-              if( this.total > 0){
-                data.creditCard[c].total = data.creditCard[c].total /100;
-                data.creditCard[c].total = data.creditCard[c].total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-              }else{
-                data.creditCard[c].total = 0;
-                data.creditCard[c].total = data.creditCard[c].total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-              }
-            }
+                this.total = 0;
 
-            this.creditCards = data.creditCard;
+                data2.payments.map( item =>{
+                    this.total += item.value;
+
+                    item.value = item.value /100;
+                    item.value = item.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                    item.total = this.total;
+
+                    this.inputDisabled = true;
+                });
+                data2.total = this.total;
+            })
+            this.creditCards = data2;
             this.ngBlockCreditCard.stop();
 
           }, error =>{ if( error.status == 401) this.authService.logout() });
