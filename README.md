@@ -1,25 +1,30 @@
-# Financial
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.5.
+# FinanceFrontend
 
-## Description 
-Is a own project to make me study. 
-On him you could control your own finance, adding their credit-card ( on the future adding thier home bills ).
-I`ve stopped to develop this project on beginning of 2020. But i`m thinking to back him on beginnig of 2021.
+    # Description 
+    Is a own project to make me study. On him you could control your own finance, adding their credit-card ( on the future adding thier home bills ). Ive stopped to develop this project on beginning of 2020. But im thinking to back him on beginnig of 2021.
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
 
 ## Development server
-- To run the system first of all use: npm install.
-- After install packages from node_modules use `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
+
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Packges used
-    
-    "ngx-viacep": "^2.1.2",
-    "moment": "^2.24.0",
-    "ng-block-ui": "^2.1.8",
-    "ngx-bootstrap": "^5.2.0",  <= to styles in general
-    "ngx-currency": "^2.0.2",
-    "ng2-charts": "^2.3.0",
-    "bootstrap": "^4.4.1",      <= to ng2-chart
-    "chart.js": "^2.9.3",       <= to ng2-chart
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
