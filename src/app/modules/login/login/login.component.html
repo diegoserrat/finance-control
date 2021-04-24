@@ -10,14 +10,6 @@
                         placeholder="Ex. your@email.com"
                         name="email"
                         formControlName="email">
-                     <!-- [errorStateMatcher]="matcher" -->
-              <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-              <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                Please enter a valid email address
-              </mat-error> -->
-              <!-- <mat-error *ngIf="emailFormControl.hasError('required')">
-                Email is <strong>required</strong>
-              </mat-error> -->
             </mat-form-field>
             <mat-form-field>
                 <mat-label for="password">Password</mat-label>
@@ -28,7 +20,11 @@
                       name="password"
                       formControlName="password">
             </mat-form-field>
-            <button mat-raised-button color="primary">Logon</button>
+            <button 
+                mat-raised-button 
+                color="primary" 
+                [disabled]="!loginForm.valid"
+                (click)="post()">Logon</button>
         </form>
     </div>
 </div>
