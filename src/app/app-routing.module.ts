@@ -4,11 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { RoutesEnum } from './shared/models/enums/routes.enum';
 
 const routes: Routes = [
-  // {
-  //   path: `${RoutesEnum.home}`,
-  //   loadChildren: () =>
-  //     import('./modules/home/home.module').then((m) => m.HomeModule),
-  // },
+  {
+    path: `${RoutesEnum.home}`,
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
+  },
   {
     path: `${RoutesEnum.login}`,
     loadChildren: () =>
