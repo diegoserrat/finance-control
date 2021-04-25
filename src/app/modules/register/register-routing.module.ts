@@ -3,13 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { RegisterComponent } from './register/register.component';
 
-const clientRoutes: Routes = [
+const registerRoutes: Routes = [
   { path: '', component: RegisterComponent, data: { preload: true } },
-  { path: ':id', component: RegisterComponent, data: { preload: true } },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(clientRoutes)],
+  imports: [RouterModule.forChild(registerRoutes)],
   exports: [RouterModule],
 })
 export class RegisterRoutingModule {}

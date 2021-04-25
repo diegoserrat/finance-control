@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "finance-control-1ce20": {
+      "hosting": {
+        "finance-frontend": [
+          "finance-control-1ce20"
+        ]
+      }
+    }
+  }
+}

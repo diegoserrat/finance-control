@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { LoginService } from '../../../core/services/login/login.service';
-import { Login } from './../../../shared/models/interface/login.interface';
+import { AuthenticationService } from './../../../core/services/authentication/authentication.service';
+import { RoutesEnum } from './../../../shared/models/enums/routes.enum';
 
 @Component({
   selector: 'app-login',
@@ -18,15 +19,31 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
-  constructor(private loginService: LoginService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationSerice: AuthenticationService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (localStorage.getItem('user')) {
+      this.router.navigate([`${RoutesEnum.home}`]);
+    }
+  }
 
-  post(): void {
-    const payload: Login = {
-      email: this.loginForm.controls.email.value,
-      password: this.loginForm.controls.password.value,
-    };
-    console.log(this.loginService.post(payload));
+  post() {
+    const email = this.loginForm.controls.email.value;
+    const password = this.loginForm.controls.password.value;
+
+    this.authenticationSerice.signIn(email, password).then((res) => {
+      console.log(res);
+      if (this.authenticationSerice.isLogged) {
+        this.router.navigate([`${RoutesEnum.home}`]);
+      }
+    });
+  }
+
+  toRegister() {
+    this.router.navigate([`/register`], { relativeTo: this.route });
   }
 }
