@@ -17,7 +17,6 @@ const routes: Routes = [
       import('./modules/register/register.module').then(
         (m) => m.RegisterModule
       ),
-    canActivate: [AuthGuard],
   },
   {
     path: `${RoutesEnum.login}`,

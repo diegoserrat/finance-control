@@ -1,1 +1,30 @@
-<p>register works!</p>
+<div class="container">
+    <div class="login">
+        <div> Register and signOn</div>
+        <form class="login-form" [formGroup]="signOnForm">
+            <mat-form-field class="example-full-width">
+                <mat-label for="email">Email</mat-label>
+                <input 
+                        type="email" 
+                        matInput 
+                        placeholder="Ex. your@email.com"
+                        name="email"
+                        formControlName="email">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="password">Password</mat-label>
+                <input 
+                      type="password" 
+                      matInput 
+                      placeholder="**********"
+                      name="password"
+                      formControlName="password">
+            </mat-form-field>
+            <button 
+                mat-raised-button 
+                color="primary" 
+                [disabled]="!signOnForm.valid"
+                (click)="register()">SignOn</button>
+        </form>
+    </div>
+</div>

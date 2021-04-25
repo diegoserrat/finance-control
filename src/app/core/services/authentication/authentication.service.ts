@@ -1,22 +1,26 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+// import { auth } from 'firebase/app';
+// import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
 
-import { Login } from '../../../shared/models/interface/login.interface';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+// import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
   isLogged = false;
+  uuId = '';
   public user: Observable<any>;
   private userSubject: BehaviorSubject<any>;
 
   constructor(
     private router: Router,
     private angularFireAuth: AngularFireAuth
-  ) {
+  ) // private angularFirestore: AngularFirestore
+  {
     this.userSubject = new BehaviorSubject<any>(
       JSON.parse(localStorage.getItem('user'))
     );
@@ -27,21 +31,22 @@ export class AuthenticationService {
     return this.userSubject.value;
   }
 
-  signIn(email: string, password: string) {
-    this.angularFireAuth
+  async signIn(email: string, password: string) {
+    await this.angularFireAuth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
-        localStorage.setItem('user', JSON.stringify(res.user));
         this.isLogged = true;
+        localStorage.setItem('user', JSON.stringify(res.user));
       });
   }
 
-  signUp(email: string, password: string) {
-    this.angularFireAuth
+  async signUp(email: string, password: string) {
+    await this.angularFireAuth
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
-        localStorage.setItem('user', JSON.stringify(res.user));
+        this.uuId = res.user.uid;
         this.isLogged = true;
+        localStorage.setItem('user', JSON.stringify(res.user));
       });
   }
 
@@ -50,4 +55,9 @@ export class AuthenticationService {
     localStorage.removeItem('user');
     this.isLogged = false;
   }
+
+  // async signOut() {
+  //   await this.angularFireAuth.auth.signOut();
+  //   return this.router.navigate(['/']);
+  // }
 }
