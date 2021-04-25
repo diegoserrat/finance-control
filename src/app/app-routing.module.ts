@@ -10,6 +10,13 @@ const routes: Routes = [
       import('./modules/home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: `${RoutesEnum.register}`,
+    loadChildren: () =>
+      import('./modules/register/register.module').then(
+        (m) => m.RegisterModule
+      ),
+  },
+  {
     path: `${RoutesEnum.login}`,
     loadChildren: () =>
       import('./modules/login/login.module').then((m) => m.LoginModule),
