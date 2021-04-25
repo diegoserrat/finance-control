@@ -1,5 +1,6 @@
+import { AuthGuard } from './core/helpers/auth.guard';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { RoutesEnum } from './shared/models/enums/routes.enum';
 
@@ -8,6 +9,7 @@ const routes: Routes = [
     path: `${RoutesEnum.home}`,
     loadChildren: () =>
       import('./modules/home/home.module').then((m) => m.HomeModule),
+    canActivate: [AuthGuard],
   },
   {
     path: `${RoutesEnum.register}`,
@@ -15,6 +17,7 @@ const routes: Routes = [
       import('./modules/register/register.module').then(
         (m) => m.RegisterModule
       ),
+    canActivate: [AuthGuard],
   },
   {
     path: `${RoutesEnum.login}`,
