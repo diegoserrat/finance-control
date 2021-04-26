@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  mat-card {
+    margin-bottom: 20px;
+  }
+
+  .user-card {
+    width: 50%;
+
+    mat-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      ::ng-deep .mat-card-header-text {
+        margin: 0px;
+        flex-grow: 1;
+      }
+    }
+  }
+}

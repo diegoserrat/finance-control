@@ -1,7 +1,8 @@
 # FinanceFrontend
-
-    # Description 
+    Description 
+    
     Is a own project to make me study. On him you could control your own finance, adding their credit-card ( on the future adding thier home bills ). Ive stopped to develop this project on beginning of 2020. But im thinking to back him on beginnig of 2021.
+    I`m using firebase store as a backend.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
 

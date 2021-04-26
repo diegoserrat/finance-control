@@ -1,1 +1,37 @@
-<p>home works!</p>
+<div class="container">
+    <app-cards-client [data]="userData"></app-cards-client>
+    <!-- <mat-card class="user-card">
+        <mat-card-header>
+          <div mat-card-avatar class="user-header"></div>
+          <mat-card-title>User data</mat-card-title>
+          <div>
+              <button mat-button color="primary">
+                  <mat-icon>edit</mat-icon>edit</button>
+              <button mat-button color="warn">
+                  <mat-icon>control_point</mat-icon>delete</button>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list role="list" *ngFor="let user of userData">
+                <mat-list-item role="listitem">{{user.email}}</mat-list-item>
+              </mat-list>
+        </mat-card-content>
+    </mat-card> -->
+    <mat-card class="user-card">
+        <mat-card-header>
+          <div mat-card-avatar class="user-header"></div>
+          <mat-card-title>Credit Cards</mat-card-title>
+          <div>
+              <!-- <button mat-button color="primary">
+                  <mat-icon>edit</mat-icon>edit</button>
+              <button mat-button color="warn">
+                  <mat-icon>control_point</mat-icon>delete</button> -->
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- <mat-list role="list" *ngFor="let user of userData">
+                <mat-list-item role="listitem">{{user.email}}</mat-list-item>
+              </mat-list> -->
+        </mat-card-content>
+    </mat-card>
+</div>
