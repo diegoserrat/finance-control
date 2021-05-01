@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="desktop-menu">
+        <mat-icon class="mat-18">home</mat-icon>
+        <div class="links-menu">
+            <a>user data</a>
+            <a>your credit cards</a>
+        </div>
+        <div class="logout">
+            <a>logout</a>
+        </div>
+    </div>
+    <div class="mobile-menu">
+        <mat-icon class="mat-18" (click)="showMenu = !showMenu">menu</mat-icon>
+        <div [ngClass]="{
+            'links-mobile-menu-show': showMenu,
+            'links-mobile-menu-hidden': !showMenu}">
+            <mat-icon class="mat-18" (click)="showMenu = !showMenu">menu</mat-icon>
+            <a>user data</a>
+            <a>your credit cards</a>
+        </div>
+    </div>
+</div>
