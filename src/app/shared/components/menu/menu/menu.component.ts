@@ -11,4 +11,10 @@ export class MenuComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  closeOptions() {
+    if (this.showMenu) {
+      this.showMenu = false;
+    }
+  }
 }

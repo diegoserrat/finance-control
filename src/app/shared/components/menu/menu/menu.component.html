@@ -1,22 +1,27 @@
 <div class="container">
     <div class="desktop-menu">
-        <mat-icon class="mat-18">home</mat-icon>
+        <mat-icon class="mat-18 cursor-pointer">home</mat-icon>
         <div class="links-menu">
-            <a>user data</a>
-            <a>your credit cards</a>
+            <a class="cursor-pointer">user data</a>
+            <a class="cursor-pointer">your credit cards</a>
         </div>
         <div class="logout">
             <a>logout</a>
         </div>
     </div>
-    <div class="mobile-menu">
-        <mat-icon class="mat-18" (click)="showMenu = !showMenu">menu</mat-icon>
+    <div class="mobile-menu" (clickOutside)="closeOptions()">
+        <mat-icon class="mat-18 cursor-pointer" (click)="showMenu = !showMenu">menu</mat-icon>
         <div [ngClass]="{
             'links-mobile-menu-show': showMenu,
             'links-mobile-menu-hidden': !showMenu}">
-            <mat-icon class="mat-18" (click)="showMenu = !showMenu">menu</mat-icon>
-            <a>user data</a>
-            <a>your credit cards</a>
+            <mat-icon class="mat-18 cursor-pointer" (click)="showMenu = !showMenu">menu</mat-icon>
+            <div class="links-mobile-menu">
+                <a class="cursor-pointer">user data</a>
+                <a class="cursor-pointer">your credit cards</a>
+            </div>
+            <div class="logout-mobile-menu">
+                <a>logout</a>
+            </div>
         </div>
     </div>
 </div>
