@@ -1,5 +1,8 @@
 <div class="container">
-    <app-cards-client [data]="userData" [title]="'user data'" [isUserData]=true></app-cards-client>
-    <!-- <app-cards-client [data]="[]" [title]="'Credit Card Name'" [isUserData]=false></app-cards-client> -->
-    <!-- <app-cards-client [data]="[]" [title]="'Credit Card Name2'" [isUserData]=false></app-cards-client> -->
+    <app-menu></app-menu>
+    <div class="content">
+        <app-cards-client [data]="userData" [title]="'user data'" [isUserData]=true></app-cards-client>
+        <app-cards-client [data]="[]" [title]="'Credit Card Name'" [isUserData]=false></app-cards-client>
+        <app-cards-client [data]="[]" [title]="'Credit Card Name2'" [isUserData]=false></app-cards-client>
+    </div>
 </div>
