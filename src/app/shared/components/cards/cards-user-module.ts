@@ -8,10 +8,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 
+import { CardsHomeDebitsComponent } from './cards-home-debits/cards-home-debits.component';
 import { CardsUserComponent } from './cards-client/cards-user.component';
 
 @NgModule({
-  declarations: [CardsUserComponent],
+  declarations: [CardsUserComponent, CardsHomeDebitsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -22,7 +23,7 @@ import { CardsUserComponent } from './cards-client/cards-user.component';
     MatListModule,
     MatIconModule,
   ],
-  exports: [CardsUserComponent],
+  exports: [CardsUserComponent, CardsHomeDebitsComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CardsUserModule {}
