@@ -19,6 +19,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: `${RoutesEnum.debits}`,
+    loadChildren: () =>
+      import('./modules/debits/debits.module').then((m) => m.DebitsModule),
+  },
+  {
     path: `${RoutesEnum.login}`,
     loadChildren: () =>
       import('./modules/login/login.module').then((m) => m.LoginModule),

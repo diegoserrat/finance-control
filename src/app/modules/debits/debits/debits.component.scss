@@ -1,0 +1,10 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  .content {
+    margin-top: 75px;
+  }
+}
